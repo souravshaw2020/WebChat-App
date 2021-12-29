@@ -1,0 +1,39 @@
+<form class="col-sm-12 white" [formGroup]="signupForm" #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="input-field col-sm-10">
+      <i class="material-icons prefix">account_circle</i>
+      <input class="validate" type="text" #userName name="userName" formControlName="userName" placeholder="User Name" required
+             onfocus="this.placeholder=''" onblur="this.placeholder='Enter User Name'" autocomplete="off" />
+      <div class="red-text error-message" *ngIf="signupForm.controls['userName'].invalid && (signupForm.controls['userName'].touched || signupForm.controls['userName'].dirty) && signupForm.controls['userName'].errors.required">
+        <i class="material-icons">error</i> User Name Required!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col-sm-10">
+      <i class="material-icons prefix">vpn_key</i>
+      <input class="validate" type="password" #UserPassword name="userPassword" formControlName="userPassword" placeholder="Password" required minlength="5"
+             onfocus="this.placeholder=''" onblur="this.placeholder='Enter Password'" autocomplete="off" />
+      <div class="red-text error-message" *ngIf="signupForm.controls['userPassword'].errors && (signupForm.controls['userPassword'].touched || signupForm.controls['userPassword'].dirty)">
+        <p *ngIf="signupForm.controls['userPassword'].errors.required"><i class="material-icons">error</i>Password is Required!</p>
+        <p *ngIf="signupForm.controls['userPassword'].errors.minlength"><i class="material-icons">error</i>Minimum 5 Characters Required!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col-sm-10">
+      <i class="material-icons prefix">email</i>
+      <input class="validate" type="text" #UserEmail name="userEmail" formControlName="userEmail" [pattern]="emailPattern" placeholder="Email" required
+             onfocus="this.placeholder=''" onblur="this.placeholder='Enter Email'" autocomplete="off" />
+      <div class="red-text error-message" *ngIf="signupForm.controls['userEmail'].errors && (signupForm.controls['userEmail'].touched || signupForm.controls['userEmail'].dirty)">
+        <p *ngIf="signupForm.controls['userEmail'].errors.required"><i class="material-icons">error</i>Email is Required...</p>
+        <p *ngIf="signupForm.controls['userEmail'].errors.pattern"><i class="material-icons">error</i>Invalid Email!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col-sm-10">
+      <button [disabled]="!f.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

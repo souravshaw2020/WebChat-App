@@ -1,0 +1,31 @@
+.jumbotron {
+    margin: 0px;
+    height: 100vh;
+    width: 100vw;
+}
+.container-sm {
+    max-width: 100%;
+}
+.outer {
+    background-color: #130856;
+    width: 100vw;
+}
+img {
+    padding: 10px;
+}
+.heading {
+  position: absolute;
+  color: #928af6;
+  top: 3%;
+  left: 50%;
+  width: 100vh;
+}
+a {
+    text-decoration: none;
+}
+.card {
+    position: absolute;
+    top: 50%;
+    left: 22%;
+    width: 50%;
+}
